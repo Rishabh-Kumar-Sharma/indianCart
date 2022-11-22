@@ -1,0 +1,46 @@
+Using React Icons in this project as a foreign library
+Using Tailblocks(Tailwind Framework) for layouts
+Update the url of the image in the database
+Used React Toastify in 'Check Servicability'
+Used CryptJS for cryptography of password
+Used JWT(JSON Web Token for security of transfer of data) to transfer 
+the details of the user into his/her account
+Used '_document.js' to overwrite the pre-defined HTML so that the cart
+which was visible all the time(and not supposed to be) is deliberately 
+made: 'overflow-x-hidden' so that the cart can't be seen by default
+There can be some situation in which a component in which a state variable is 
+changing its state, doesn't get mounted or gets unmounted, in this situation an 
+error : "Can't perform a React state update on an unmounted 
+component." will occur. This error was occuring in the __app.js page because of 
+its 'Navbar' component. So, a change is done to the Navbar component:
+
+    Initially, it looked like:
+    const [key, setKey] = useState(0); 
+        <Navbar
+          logout={logout}
+          user={user}
+          key={key}
+          cart={cart}
+          addToCart={addToCart}
+          removeFromCart={removeFromCart}
+          clearCart={clearCart}
+          subTotal={subTotal}
+        />
+
+    After correcting the error: 
+        const [key, setKey] = useState();
+        {key && (
+        <Navbar
+          logout={logout}
+          user={user}
+          key={key}
+          cart={cart}
+          addToCart={addToCart}
+          removeFromCart={removeFromCart}
+          clearCart={clearCart}
+          subTotal={subTotal}
+        />}
+
+Used 'wrappixel' website for the pre-defined admin template
+while starting to use this template, run: yarn install so that the nextjs gets imported there
+using nodemailer for mailing in the case of forgot password
